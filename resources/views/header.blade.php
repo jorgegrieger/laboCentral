@@ -89,12 +89,10 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Cadastros</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-genderless"></i><a href="font-themify.html">Produtos</a></li>
+                            <li><i class="menu-icon fa fa-genderless"></i><a href="{{route('produto.index')}}">Produtos</a></li>
                             <li><i class="menu-icon fa fa-genderless"></i><a href="{{route('fornecedor.index')}}">Fornecedores</a></li>
                             <li><i class="menu-icon fa fa-genderless"></i><a href="{{route('analista.index')}}">Analistas</a></li>
                             <li><i class="menu-icon fa fa-genderless"></i><a href="{{route('arearesp.index')}}">Áreas Responsáveis</a></li>
-                            <li><i class="menu-icon fa fa-genderless"></i><a href="font-themify.html">Revisões</a></li>
-                            <li><i class="menu-icon fa fa-genderless"></i><a href="font-fontawesome.html">Testes Diários</a></li>
                         </ul>
                     </li>
                     <li>

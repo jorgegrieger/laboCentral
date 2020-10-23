@@ -1,8 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Produto;
+use App\Fornecedor;
+use App\Arearesp;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProdutoRequest;
+
 
 class ProdutoController extends Controller
 {
@@ -14,11 +20,13 @@ class ProdutoController extends Controller
 
     public function adicionar()
     {
-        return view('produto.add');
+        $fornecedor = Fornecedor::all()->pluck('nome', 'id');
+        $arearesp = Arearesp::all()->pluck('nome', 'id');
+                return view('produto.add', compact('fornecedor', 'arearesp'));
 
     }
 
-public function salvar(produtoRequest $request){
+public function salvar(ProdutoRequest $request){
     
     \App\Produto::create($request->all());
     
@@ -37,7 +45,7 @@ public function editar($id)
         return view('produto.editar',compact('produto'));
 }
 
-public function atualizar(produtoRequest $request, $id)
+public function atualizar(ProdutoRequest $request, $id)
 {
     $produto = \App\Produto::find($id)->update($request->all());
             \Session::flash('flash_message', [
