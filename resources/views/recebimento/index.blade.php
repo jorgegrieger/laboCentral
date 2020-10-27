@@ -91,13 +91,14 @@
 									<th>Area Responsavel</th>
 									<th>Peso Liquido</th>
                                     <th>Peso Laboratório</th>
+									<th>Ação</th>
 								</tr>
 							</thead>
 							<tbody>
 							@foreach ($request as $recebimentos)
 								<tr>
 									<th scope="row">{{ $recebimentos->id }}</th>
-									<td>{{ $recebimentos->produts->nometec }}</td>
+									<td>{{ $recebimentos->produts->nometec}}</td>
 									<td>{{ $recebimentos->produts->produtobo}}</td>
 									<td>{{ $recebimentos->nfe}}</td>
                                     <td>{{ $recebimentos->fornecedores->nome}}</td>

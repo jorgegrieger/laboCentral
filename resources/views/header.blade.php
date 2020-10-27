@@ -83,7 +83,7 @@
                     </li>
                     <li class="menu-title">Recebimento de Matéria Prima</li><!-- /.menu-title -->
                     <li>
-                        <a href=""><i class="menu-icon fa fa-truck"></i>Cadastrar Matéria Prima</a>
+                        <a href="{{route('recebimento.index')}}"><i class="menu-icon fa fa-truck"></i>Cadastrar Matéria Prima</a>
                     </li>
                     <li class="menu-title">Laboratório Químico</li><!-- /.menu-title -->
                     

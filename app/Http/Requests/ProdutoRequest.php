@@ -27,7 +27,7 @@ class ProdutoRequest extends FormRequest
             'produtobo' => 'required',
             'nometec' => 'required',
             'st' => 'required',
-            'resparea_id' => 'required'
+      
         ];
     }
 
@@ -38,7 +38,7 @@ class ProdutoRequest extends FormRequest
             'produtobo.required' => 'O campo PRODUTO é de preenchimento obrigatório!', 
             'nometec.required' => 'O campo COMERCIAL é de preenchimento obrigatório!', 
             'st.required' => 'O campo Situação é de preenchimento obrigatório!',
-            'resparea_id.required' => 'Necessário Informar uma Área Responsavel'
+           
         ];
     }
 }

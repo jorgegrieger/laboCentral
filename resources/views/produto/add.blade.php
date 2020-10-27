@@ -86,12 +86,7 @@
 							<div class="col-md-6">
 							<div class="form-group">
 							<label for="text">Área Responsável:</label>
-									<select id="" name="resparea_id" class="form-control" >
-                                    <option value="" selected disabled>Selecionar</option>
-                							  @foreach($arearesp as $key => $areasresps)
-                  								<option  value="{{$key}}"> {{$areasresps}}</option>
-                  							  @endforeach
-                  						</select>
+							<input type="text" class="form-control" name="resparea" value="{{old('resparea')}}">
             				</div>
 							</div>
                             </div>
