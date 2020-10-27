@@ -6,7 +6,7 @@ use App\Fornecedor;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
-use App\Http\Requests\ProdutoRequest;
+use App\Http\Requests\RecebimentoRequest;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
@@ -65,3 +65,4 @@ $recebimento->delete();
 return redirect()->route('recebimento.index')->with('mensagem', 'O recebimento '.$recebimento->nome.' foi deletado com sucesso.');   
 }
 
+}

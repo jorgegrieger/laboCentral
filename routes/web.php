@@ -54,4 +54,8 @@ Route::get('/produto/deletar/{id}','ProdutoController@deletar')->name('produto.d
 
 /*Rotas de Recebimento*/
 Route::get('/recebimento','RecebimentoController@index')->name('recebimento.index');
-Route::get('/recebimento/adicionar','RecebimentoController@index')->name('recebimento.adicionar');
+Route::get('/recebimento/adicionar','RecebimentoController@adicionar')->name('recebimento.add');
+Route::get('/recebimento/editar/{id}','RecebimentoController@editar')->name('recebimento.editar');
+Route::POST('/recebimento/salvar','RecebimentoController@salvar')->name('recebimento.salvar');
+Route::POST('/recebimento/atualizar/{id}','RecebimentoController@atualizar')->name('recebimento.atualizar');
+Route::get('/recebimento/deletar/{id}','RecebimentoController@deletar')->name('recebimento.deletar');
