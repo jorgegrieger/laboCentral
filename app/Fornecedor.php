@@ -14,4 +14,10 @@ class Fornecedor extends Model
     {
         return $this->belongsTo(Produto::class,'produto_id', 'id');
     }
+
+    public function recebimento()
+    {
+        return $this->belongsTo(Recebimento::class,'fornecedor_id', 'id');
+        
+    }
 }

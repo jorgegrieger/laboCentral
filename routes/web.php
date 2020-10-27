@@ -59,3 +59,4 @@ Route::get('/recebimento/editar/{id}','RecebimentoController@editar')->name('rec
 Route::POST('/recebimento/salvar','RecebimentoController@salvar')->name('recebimento.salvar');
 Route::POST('/recebimento/atualizar/{id}','RecebimentoController@atualizar')->name('recebimento.atualizar');
 Route::get('/recebimento/deletar/{id}','RecebimentoController@deletar')->name('recebimento.deletar');
+Route::get('/produtoboName','RecebimentoController@produtoboName')->name('recebimento.select');

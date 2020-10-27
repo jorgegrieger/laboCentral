@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 use App\Produto;
 use App\Fornecedor;
+use App\Recebimento;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use App\Http\Requests\RecebimentoRequest;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use DB;
+
 
 
 class RecebimentoController extends Controller
@@ -21,8 +24,11 @@ class RecebimentoController extends Controller
 
     public function adicionar()
     {
+        $produto = DB::table("produtos")->pluck('nometec','id');
+        $produt = DB::table("produtos")->pluck('produtobo','id');
+        
         $fornecedor = Fornecedor::all()->pluck('nome', 'id');
-                return view('recebimento.add', compact('fornecedor'));
+                return view('recebimento.add', compact('produto', 'fornecedor'));
 
     }
 
@@ -38,6 +44,8 @@ public function salvar(RecebimentoRequest $request){
     return redirect()->route('recebimento.index');
 
 }
+
+
 
 public function editar($id)
 {

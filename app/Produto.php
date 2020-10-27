@@ -18,6 +18,10 @@ class Produto extends Model
         return $this->belongsTo('App\Fornecedor');
     }
 
-    
+    public function recebimento()
+    {
+        return $this->belongsTo(Recebimento::class,'produto_id', 'id');
+        
+    }
 }
 
