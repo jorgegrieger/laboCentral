@@ -99,7 +99,7 @@
                                 <div class="col-md-6">
                                 <div class="form-group">
                                         <label for="text">Cod. SAP:</label>
-                                        <input type="text" class="form-control" name="cosap" value="{{old('st')}}">
+                                        <input type="text" class="form-control" name="cosap" value="{{old('cosap')}}">
                                     </div>
 									</div>
                                     </div>

@@ -36,13 +36,13 @@ Route::POST('/fornecedor/salvar','FornecedorController@salvar')->name('fornecedo
 Route::POST('/fornecedor/atualizar/{id}','FornecedorController@atualizar')->name('fornecedor.atualizar');
 Route::get('/fornecedor/deletar/{id}','FornecedorController@deletar')->name('fornecedor.deletar');
 
-/*Rotas Areas Responsaveis*/
+/*Rotas Areas Responsaveis
 Route::get('/arearesp','ArearespController@index')->name('arearesp.index');
 Route::get('/arearesp/adicionar','ArearespController@adicionar')->name('arearesp.add');
 Route::get('/arearesp/editar/{id}','ArearespController@editar')->name('arearesp.editar');
 Route::POST('/arearesp/salvar','ArearespController@salvar')->name('arearesp.salvar');
 Route::POST('/arearesp/atualizar/{id}','ArearespController@atualizar')->name('arearesp.atualizar');
-Route::get('/arearesp/deletar/{id}','ArearespController@deletar')->name('arearesp.deletar');
+Route::get('/arearesp/deletar/{id}','ArearespController@deletar')->name('arearesp.deletar');*/
 
 /*Rotas Produtos*/
 Route::get('/produto','ProdutoController@index')->name('produto.index');

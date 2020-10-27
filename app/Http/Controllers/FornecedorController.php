@@ -6,12 +6,13 @@ use App\Fornecedor;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\FornecedorRequest;
 class FornecedorController extends Controller
 {
     public function index()
     {	
-        $request = Fornecedor::all(); 
+        $request = DB::table('fornecedors')->simplePaginate(20); 
         return view('fornecedor.index',compact('request'));
     }
 

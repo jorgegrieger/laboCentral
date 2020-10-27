@@ -101,13 +101,18 @@
                                 </td>															
 								</tr>
 								@endforeach
+						
 							</tbody>
 						</tbody>
+						
 					</table>
+					
+					{{ $request->links() }}
+				
 				</div>
 			</div>
 		</div>
-
+		
 	</div>
 </div><!-- .animated -->
 </div><!-- .content -->

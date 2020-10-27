@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Produto extends Model
 {
+
+    use softdeletes;
+
     protected $fillable = [ 'id', 'produtobo', 'nometec', 'fornecedor_id', 'resparea_id', 'st', 'cosap'];
     public $timestamps = false;
 
@@ -15,11 +18,6 @@ class Produto extends Model
         return $this->belongsTo('App\Fornecedor');
     }
 
-    public function areasresps()
-    {
-        return $this->belongsTo(Arearesp::class, 'resparea_id', 'id');
-        return $this->belongsTo('App\Fornecedor');
-    }
-
+    
 }
 

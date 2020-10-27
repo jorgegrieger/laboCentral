@@ -1,69 +1,67 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
+use App\Produto;
+use App\Fornecedor;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
-/*use App\Http\Requests\ProdutoRequest;*/
-/*use App\Produto;*/
-/*use App\Fornecedor;*/
-use DB;
+use App\Http\Requests\ProdutoRequest;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class RecebimentoController extends Controller
 {
-
-
-    public function index(){
-
-        $produtos = Produto::all();
-
-        return view('produtos.index', compact('produtos'));
+    public function index()
+    {	
+        $request = Recebimento::all();
+        $request = Recebimento::simplePaginate(15);
+        return view('recebimento.index',compact('request'));
     }
+
     public function adicionar()
     {
-      
         $fornecedor = Fornecedor::all()->pluck('nome', 'id');
-        return view ('produtos.addproduto', compact('fornecedor'));
+                return view('recebimento.add', compact('fornecedor'));
+
     }
 
-
-    public function editar($id)
-    {
-        $achaProduto = Produto::find($id);
-
-         
-
-
-        return view('produtos.editar',compact('achaProduto'));
-    }
-
-
-    public function salvar(ProdutoRequest $request){
-         \App\Produto::create( $request->all());
-        
-         return redirect()->route('produto.index');
-
-        }
-
-
-        public function buscar (Request $request)
-        {
-
-          $busca = $request->get('criterio');
-          $produtos = DB::table('produtos')->where('nome', 'LIKE','%'.$busca.'%')->paginate();
-        
-          if ($produtos->isempty()){
-              return redirect()->route('produto.index')->with('erro','Nenhum produto foi encontrado!');
-          }
-          return view ('produtos.index', ['produtos' => $produtos]);
-        }
-
-        public function deletar ($id)
-        {
-            $produto = \App\Produto::find($id);
-            $produto->delete();
-        
-            return redirect()->route('produto.index')->with('mensagem', 'O Produto '.$produto->nome.' foi deletado com sucesso.');   
-        }
+public function salvar(RecebimentoRequest $request){
     
+    \App\Recebimento::create($request->all());
+    
+    \Session::flash('flash_message',[
+        'msg'=>"Recebimento adicionado com Sucesso!",
+        'class'=>"alert-success"
+    ]);
+
+    return redirect()->route('recebimento.index');
+
 }
+
+public function editar($id)
+{
+    $recebimento = \App\Recebimento::find($id);
+    $fornecedor = Fornecedor::all()->pluck('nome', 'id');
+        return view('recebimento.editar',compact('recebimento','fornecedor'));
+}
+
+public function atualizar(RecebimentoRequest $request, $id)
+{
+    $recebimento = \App\Recebimento::find($id)->update($request->all());
+            \Session::flash('flash_message', [
+                'msg' => 'Recebimento atualizado com sucesso!',
+                'class' => 'alert-success'
+            ]);
+            return redirect()->route('recebimento.index');
+        
+}
+
+public function deletar ($id)
+{
+$recebimento = \App\Recebimento::find($id);
+$recebimento->delete();
+
+return redirect()->route('recebimento.index')->with('mensagem', 'O recebimento '.$recebimento->nome.' foi deletado com sucesso.');   
+}
+

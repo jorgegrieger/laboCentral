@@ -8,7 +8,7 @@
 			<div class="col-sm-4">
 				<div class="page-header float-left">
 					<div class="page-title">
-						<h1>produtoes</h1>
+						<h1>Produtos</h1>
 					</div>
 				</div>
 			</div>
@@ -16,8 +16,8 @@
 				<div class="page-header float-right">
 					<div class="page-title">
 						<ol class="breadcrumb text-right">
-							<li><a href="">Inicio</a></li>
-							<li class="active">produtoes</li>
+							<li><a href="{{route('home')}}">Inicio</a></li>
+							<li class="active">Produtos</li>
 						</ol>
 					</div>
 				</div>
@@ -33,7 +33,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<strong class="card-title">produtoes</strong>
+						<strong class="card-title">Produtos</strong>
 					</div>
 					<br>
 					<div class="col-sm-6">
@@ -89,6 +89,7 @@
 									<th>Área Responsável</th>
 									<th>Cod. SAP</th>
 									<th>Situação</th>
+									<th>Ação</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -97,8 +98,15 @@
 									<th scope="row">{{ $produtos->id }}</th>
 									<td>{{ $produtos->produtobo }}</td>
 									<td>{{ $produtos->nometec}}</td>
-									<td>{{ $produtos->areasresps->nome}}</td>
+								
+									<td>{{ $produtos->resparea}}</td>
+								
+									
+									@if($produtos->cosap != NULL)
 									<td>{{ $produtos->cosap}}</td>
+									@else
+									<td>NDA</td>
+									@endif
 									<td>{{ $produtos->st}}</td>
 									<td style="height: 53px; width: 324px;">
                                     <a class="btn btn-custom" href="{{route('produto.editar',$produtos->id)}}">Editar</a>
@@ -109,6 +117,7 @@
 							</tbody>
 						</tbody>
 					</table>
+					{{ $request->links() }}
 				</div>
 			</div>
 		</div>

@@ -3,6 +3,7 @@
 <html class="" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Language" content="pt-br">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sistema Laboratório Central</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
@@ -92,7 +93,6 @@
                             <li><i class="menu-icon fa fa-genderless"></i><a href="{{route('produto.index')}}">Produtos</a></li>
                             <li><i class="menu-icon fa fa-genderless"></i><a href="{{route('fornecedor.index')}}">Fornecedores</a></li>
                             <li><i class="menu-icon fa fa-genderless"></i><a href="{{route('analista.index')}}">Analistas</a></li>
-                            <li><i class="menu-icon fa fa-genderless"></i><a href="{{route('arearesp.index')}}">Áreas Responsáveis</a></li>
                         </ul>
                     </li>
                     <li>

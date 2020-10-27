@@ -3,26 +3,26 @@
 namespace App\Http\Controllers;
 use App\Produto;
 use App\Fornecedor;
-use App\Arearesp;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProdutoRequest;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class ProdutoController extends Controller
 {
     public function index()
     {	
-        $request = Produto::all(); 
+        $request = Produto::all();
+        $request = Produto::simplePaginate(15);
         return view('produto.index',compact('request'));
     }
 
     public function adicionar()
     {
         $fornecedor = Fornecedor::all()->pluck('nome', 'id');
-        $arearesp = Arearesp::all()->pluck('nome', 'id');
-                return view('produto.add', compact('fornecedor', 'arearesp'));
+                return view('produto.add', compact('fornecedor'));
 
     }
 
@@ -42,7 +42,8 @@ public function salvar(ProdutoRequest $request){
 public function editar($id)
 {
     $produto = \App\Produto::find($id);
-        return view('produto.editar',compact('produto'));
+    $fornecedor = Fornecedor::all()->pluck('nome', 'id');
+        return view('produto.editar',compact('produto','fornecedor'));
 }
 
 public function atualizar(ProdutoRequest $request, $id)
@@ -64,11 +65,7 @@ $produto->delete();
 return redirect()->route('produto.index')->with('mensagem', 'O produto '.$produto->nome.' foi deletado com sucesso.');   
 }
 
-private $model;
-public function __construct(produto $model)
-{
-    $this->model = $model;
-}
+
 
 /*public function geraPdf(){
 

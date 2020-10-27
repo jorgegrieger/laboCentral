@@ -358,6 +358,7 @@ p {
   line-height: 24px;
   color: #878787; }
 
+
 p:focus {
   border: none;
   outline: 0; }
