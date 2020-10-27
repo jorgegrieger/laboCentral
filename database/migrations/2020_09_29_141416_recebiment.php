@@ -29,8 +29,8 @@ class Recebiment extends Migration
 
         Schema::table('recebiments', function(Blueprint $table){
             
-            $table->foreign('produto_id')->references('id')->on('produtos');
-            $table->foreign('fornecedor_id')->references('id')->on('fornecedors');   
+            $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
+            $table->foreign('fornecedor_id')->references('id')->on('fornecedors')->onDelete('cascade');
 
         });
     }

@@ -14,7 +14,7 @@ class Produto extends Migration
         $table->string('produtobo');
         $table->string('nometec');
         $table->bigInteger('fornecedor_id')->nullable()->unsigned();
-        $table->bigInteger('resparea_id')->nullable()->unsigned();
+        $table->string('resparea');
         $table->string('st');
         $table->string('cosap');
         $table->softDeletes();
@@ -23,8 +23,7 @@ class Produto extends Migration
 
     Schema::table('produtos', function(Blueprint $table){
             
-        $table->foreign('fornecedor_id')->references('id')->on('fornecedors');   
-            $table->foreign('resparea_id')->references('id')->on('arearesps');   
+        $table->foreign('fornecedor_id')->references('id')->on('fornecedors')->onDelete('cascade');   
 
     });
     }
