@@ -7,6 +7,7 @@ use App\Recebimento;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Http\Requests\RecebimentoRequest;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
@@ -71,6 +72,15 @@ $recebimento = \App\Recebimento::find($id);
 $recebimento->delete();
 
 return redirect()->route('recebimento.index')->with('mensagem', 'O recebimento '.$recebimento->nome.' foi deletado com sucesso.');   
+}
+
+
+public function geraPdf($id){
+
+
+    $data = Recebimento::find($id);
+    ini_set('max_execution_time', 300);
+    return PDF::loadView('recebimento.pdf', compact('data'))->stream();
 }
 
 }

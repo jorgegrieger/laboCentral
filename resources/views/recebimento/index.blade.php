@@ -108,7 +108,7 @@
 
 									<td style="height: 53px; width: 324px;">
                                     <a class="btn btn-custom" href="{{route('recebimento.editar',$recebimentos->id)}}">Editar</a>
-									<a class="btn btn-danger"  href="javascript: (confirm('Deseja deletar o recebimento : {{$recebimentos->id}}?') ? window.location.href='{{route('recebimento.deletar',$recebimentos->id)}}' : false )">Deletar</a>
+									<a class="btn btn-danger"  href="javascript: (confirm('Deseja deletar o recebimento : {{$recebimentos->id}}?') ? window.location.href='{{route('recebimento.pdf',$recebimentos->id)}}' : false )">Deletar</a>
                                 </td>															
 								</tr>
 								@endforeach
