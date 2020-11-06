@@ -8,7 +8,7 @@
 			<div class="col-sm-4">
 				<div class="page-header float-left">
 					<div class="page-title">
-						<h1>Recebimento de Máteria Prima</h1>
+						<h1>Laudos e Liberações</h1>
 					</div>
 				</div>
 			</div>
@@ -17,7 +17,7 @@
 					<div class="page-title">
 						<ol class="breadcrumb text-right">
 							<li><a href="{{route('home')}}">Inicio</a></li>
-							<li class="active">Recebimento de Máteria Prima</li>
+							<li class="active">Laudos e Liberações</li>
 						</ol>
 					</div>
 				</div>
@@ -33,11 +33,11 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<strong class="card-title">Recebimento de Máteria Prima</strong>
+						<strong class="card-title">Laudos e Liberações</strong>
 					</div>
 					<br>
 					<div class="col-sm-6">
-					<form action="{{route('recebimento.buscar')}}" method="get">
+					<form action="{{route('analise.buscar')}}" method="get">
 				
 					<div class="input-group">
 					
@@ -56,12 +56,7 @@
 
 					<div class="card-body">
 
-					<a class="btn btn-success" href="{{ route('recebimento.add') }}">Adicionar Registro</a>
-					
-			
-					<br>
-					<br>
-
+		
 					@if(session('mensagem'))
 
 					<div class="sufee-alert alert with-close alert-success alert-dismissible fade show col-md-6">
@@ -84,7 +79,6 @@
 					@endif
 					</div>
 					<div class="card-body">
-						
 						<table id="tabela" class="table table-striped" >
 						<thead>
 								<tr>
@@ -114,8 +108,7 @@
 									<td>{{$recebimentos->st}}</td>
 
 									<td style="height: 53px; width: 324px;">
-                                    <a class="btn btn-custom" href="{{route('recebimento.editar',$recebimentos->id)}}">Editar</a>
-									<a class="btn btn-warning" href="{{route('recebimento.pdf',$recebimentos->id)}}">Emitir Recebimento</a>
+                                    <a class="btn btn-success" href="{{route('analise.editar',$recebimentos->id)}}">Realizar Laudo</a>
 								
                                 </td>															
 								</tr>

@@ -60,3 +60,14 @@ Route::POST('/recebimento/salvar','RecebimentoController@salvar')->name('recebim
 Route::POST('/recebimento/atualizar/{id}','RecebimentoController@atualizar')->name('recebimento.atualizar');
 Route::get('/recebimento/deletar/{id}','RecebimentoController@deletar')->name('recebimento.deletar');
 Route::get('/pdf/{id}','RecebimentoController@geraPdf')->name('recebimento.pdf');
+Route::get('/recebimento/buscar','RecebimentoController@buscar')->name('recebimento.buscar');
+
+/*Rotas de Analise*/
+Route::get('/analise','AnaliseController@index')->name('analise.index');
+Route::get('/analise/adicionar','AnaliseController@adicionar')->name('analise.add');
+Route::get('/analise/editar/{id}','AnaliseController@editar')->name('analise.editar');
+Route::POST('/analise/salvar','AnaliseController@salvar')->name('analise.salvar');
+Route::POST('/analise/atualizar/{id}','AnaliseController@atualizar')->name('analise.atualizar');
+Route::get('/analise/deletar/{id}','AnaliseController@deletar')->name('analise.deletar');
+Route::get('/pdfs/{id}','AnaliseController@geraPdf')->name('analise.pdf');
+Route::get('/analise/buscar','AnaliseController@buscar')->name('analise.buscar');

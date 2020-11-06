@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>A simple, clean, and responsive HTML invoice template</title>
+    <title>Relatório de Recebimento de Matéria Prima</title>
     
     <style>
     .invoice-box {

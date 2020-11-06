@@ -14,13 +14,13 @@ class Produto extends Model
 
     public function fornecedores()
     {
-        return $this->belongsTo(Fornecedor::class, 'fornecedor_id', 'id');
-        return $this->belongsTo('App\Fornecedor');
+        return $this->belongsToMany(Fornecedor::class, 'fornecedor_id', 'id');
+        return $this->belongsToMany('App\Fornecedor');
     }
 
     public function recebimento()
     {
-        return $this->belongsTo(Recebimento::class,'produto_id', 'id');
+        return $this->belongsToMany(Recebimento::class,'produto_id', 'id');
         
     }
 }

@@ -36,32 +36,33 @@ class RecebimentoController extends Controller
 public function salvar(RecebimentoRequest $request){
     
     \App\Recebimento::create($request->all());
-    
-    \Session::flash('flash_message',[
-        'msg'=>"Recebimento adicionado com Sucesso!",
-        'class'=>"alert-success"
-    ]);
 
     return redirect()->route('recebimento.index');
 
 }
 
+public function buscar(Request $request)
+{
+  $data = $request->get('criterio');
+  $request = Recebimento::where('nfe', 'LIKE','%'.$data.'%')->get();
 
+  if ($request->isempty()){
+      return redirect()->route('recebimento.index')->with('erro','Nenhum produto com a nfe foi encontrado!');
+  }
+  return view ('recebimento.index', ['request' => $request]);
+}
 
 public function editar($id)
 {
     $recebimento = \App\Recebimento::find($id);
+    $produto = DB::table("produtos")->pluck('nometec','id');
     $fornecedor = Fornecedor::all()->pluck('nome', 'id');
-        return view('recebimento.editar',compact('recebimento','fornecedor'));
+        return view('recebimento.editar',compact('recebimento','produto','fornecedor'));
 }
 
 public function atualizar(RecebimentoRequest $request, $id)
 {
     $recebimento = \App\Recebimento::find($id)->update($request->all());
-            \Session::flash('flash_message', [
-                'msg' => 'Recebimento atualizado com sucesso!',
-                'class' => 'alert-success'
-            ]);
             return redirect()->route('recebimento.index');
         
 }
@@ -80,7 +81,7 @@ public function geraPdf($id){
 
     $data = Recebimento::find($id);
     ini_set('max_execution_time', 300);
-    return PDF::loadView('recebimento.pdf', compact('data'))->stream();
+    return PDF::loadView('recebimento.pdf', compact('data'))->download('Recebimento#'.$id.'.pdf');
 }
 
 }

@@ -18,8 +18,17 @@ class Recebimento extends Model
    public function produts()
    {
        return $this->belongsTo(Produto::class,'produto_id', 'id');
+       return $this->belongsTo('App\Produto');
        
-   }
+    }
+    
+    public function analist()
+    {
+        return $this->belongsTo(Analista::class,'analista_id', 'id');
+        return $this->belongsTo('App\Analista');
+        
+     }
+     
 
    
 }

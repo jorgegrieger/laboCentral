@@ -102,7 +102,8 @@
                                         <input type="text" class="form-control" name="pesonf" value="{{old('pesonf')}}">
                                     </div>
 									</div>
-                                    </div>
+									</div>
+									<input type="hidden" id="" name="st" value="Pendente"> </input>
                                     <button class="btn btn-info">Adicionar</button>
                                     </div>
                                     </form>

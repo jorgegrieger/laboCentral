@@ -36,10 +36,10 @@
                             <div class="col-md-3">
                             </div>
                             <div class="col-md-4">
-                            <a href="./"><img src="{{asset('app-assets/images/recebimento-materia-prima.png')}}" alt="Logo"></a>
+                            <a href="{{route('recebimento.index')}}"><img src="{{asset('app-assets/images/recebimento-materia-prima.png')}}" alt="Logo"></a>
                             </div>
                             <div class="col-md-5">
-                            <a href="./"><img src="{{asset('app-assets/images/laboratorio.png')}}" alt="Logo"></a>
+                            <a href="{{route('analise.index')}}"><img src="{{asset('app-assets/images/laboratorio.png')}}" alt="Logo"></a>
                             </div>
 
 
