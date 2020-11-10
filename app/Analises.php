@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Analises extends Model
 {
-    protected $fillable = ['produto_id', 'recebimento_id','datalaudo', 'analista_id', 'st', 'obs', 'laudo'];
+    protected $fillable = ['produto_id', 'recebimento_id','datalaudo', 'analista_id','tplaudo','fds', 'sto', 'obs', 'laudo'];
 
     public function recebiments()
     {
-        return $this->belongsTo(Recebimento::class,'recebimento_id', 'id');
+        return $this->belongsTo(Recebimento::class,'recebimento_id', 'id','st');
         
     }
 
@@ -22,7 +22,7 @@ class Analises extends Model
 
     public function produt()
     {
-        return $this->belongsTo(Produto::class,'produto_id', 'id');
+        return $this->belongsTo(Produto::class,'produto_id', 'id' ,'nometec');
         
     }
     

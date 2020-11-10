@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Http\Requests\AnaliseRequest;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
 
 
@@ -20,10 +19,10 @@ class AnaliseController extends Controller
 {
     public function index()
     {	
-        $request = Analises::all();
-        $request = Analises::simplePaginate(15);
+        $requests = Analises::all();
+        $requests = Analises::simplePaginate(15);
         $request = Recebimento::where('st', '=','Pendente')->get();
-        return view('analise.index',compact('request'));
+        return view('analise.index',compact('request','requests'));
     }
 
     public function adicionar()
@@ -34,9 +33,10 @@ class AnaliseController extends Controller
 
     }
 
-public function salvar(AnaliseRequest $request){
-    
+public function salvar(AnaliseRequest $request, $id){
+    \App\Recebimento::find($id)->update($request->all());
     \App\Analises::create($request->all());
+;
 
     return redirect()->route('analise.index');
 
@@ -46,23 +46,26 @@ public function buscar(Request $request)
 {
     $data = $request->get('criterio');
     $request = Recebimento::where('nfe', 'LIKE','%'.$data.'%')->get();
-
+    $requests = Analises::all();
   if ($request->isempty()){
       return redirect()->route('analise.index')->with('erro','Nenhum produto com a nfe foi encontrado!');
   }
-  return view ('analise.index', ['request' => $request]);
+  return view ('analise.index', ['request' => $request], ['requests' => $requests]);
 }
 
 public function editar($id)
 {
     $analises = \App\Recebimento::find($id);
     $analista = Analista::all()->pluck('nome', 'id');
-        return view('analise.editar',compact('analises', 'analista'));
+    $prod = Produto::all()->pluck('nometec', 'id');
+
+        return view('analise.editar',compact('analises', 'analista','prod'));
 }
 
 public function atualizar(AnaliseRequest $request, $id)
 {
     $recebimento = \App\Analises::find($id)->update($request->all());
+   
             return redirect()->route('analise.index');
         
 }

@@ -33,7 +33,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<strong class="card-title">Laudos e Liberações</strong>
+						<strong class="card-title">Liberações Pendentes</strong>
 					</div>
 					<br>
 					<div class="col-sm-6">
@@ -111,6 +111,104 @@
                                     <a class="btn btn-success" href="{{route('analise.editar',$recebimentos->id)}}">Realizar Laudo</a>
 								
                                 </td>															
+								</tr>
+								@endforeach
+							</tbody>
+						</tbody>
+					</table>
+				
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div><!-- .animated -->
+</div><!-- .content -->
+<div class="content">
+	<div class="animated fadeIn">
+		<div class="row">
+
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<strong class="card-title">Laudos</strong>
+					</div>
+					<br>
+					<div class="col-sm-6">
+					<form action="{{route('analise.buscar')}}" method="get">
+				
+					<div class="input-group">
+					
+											<input type="text" name="criterio" placeholder="Pesquisa por NFE"  
+											data-toggle="tooltip" data-placement="top" title="Digite para fazer a busca" class="form-control">
+											<div class="input-group-btn"><button class="btn btn-primary" 
+											style="
+    												border-left-width: 5px;
+    												margin-left: 9px;"
+													>Procurar</button>
+											</div>
+										</form>
+										</div>
+				
+										</div>
+
+					<div class="card-body">
+
+		
+					@if(session('mensagem'))
+
+					<div class="sufee-alert alert with-close alert-success alert-dismissible fade show col-md-6">
+                                        {{session('mensagem')}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+									</div>
+
+					
+					@elseif(session('erro'))
+
+					<div class="sufee-alert alert with-close alert-danger alert-dismissible fade show col-md-6">
+                                        {{session('erro')}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+									</div>
+
+					@endif
+					</div>
+					<div class="card-body">
+						<table id="tabela" class="table table-striped" >
+						<thead>
+								<tr>
+									<th>#</th>
+									<th>Nota Fiscal</th>
+									<th>Produto BO Paper</th>
+									<th>Data</th>
+									<th>Analista</th>
+									<th>Tipo</th>
+									<th>Final de Semana</th>
+									<th>Situação</th>
+
+								</tr>
+							</thead>
+							<tbody>
+							@foreach ($requests as $recebimentos)
+								<tr>
+									<th scope="row">{{ $recebimentos->id }}</th>
+									<td>{{ $recebimentos->recebiments->nfe}}</td>
+									<td>{{ $recebimentos->produt->nometec}}</td>
+									<td>{{$recebimentos->created_at->format('d/m/Y H:i:s')}}</td>
+                                    <td>{{$recebimentos->analist->nome}}</td>
+									<td>{{$recebimentos->tplaudo}}</td>
+									<td>{{$recebimentos->fds}}</td>
+									@if($recebimentos->sto == 1)
+									<td>Aprovado</td>
+									@else
+									<td>Reprovado</td>
+									@endif
+
+								
+                                														
 								</tr>
 								@endforeach
 							</tbody>

@@ -17,8 +17,10 @@ class Analise extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('recebimento_id')->nullable()->unsigned();
             $table->bigInteger('produto_id')->nullable()->unsigned();
-            $table->dateTime('datalaudo');
+            $table->timestamps();
             $table->bigInteger('analista_id')->nullable()->unsigned();
+            $table->string('tplaudo');
+            $table->string('fds');
             $table->text('obs');
             $table->text('laudo');
             $table->string('st');
@@ -29,7 +31,7 @@ class Analise extends Migration
         Schema::table('analises', function(Blueprint $table){
             
 
-            $table->foreign('recebimento_id')->references('id')->on('recebiments')->onDelete('cascade');
+            $table->foreign('recebimento_id')->references('id')->on('recebimentos')->onDelete('cascade');
             $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
             $table->foreign('analista_id')->references('id')->on('analistas')->onDelete('cascade');
     });

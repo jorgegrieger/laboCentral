@@ -50,7 +50,7 @@
                                         </div>
                                         @endif
 										<!-- Fim Tratamento -->
-                                        <form action="{{route('analise.salvar')}}" method="POST">
+                                        <form action="{{route('analise.salvar',$analises->id)}}" method="POST">
 										@csrf
                                         <div class="row">
                                         <div class="col-md-6">
@@ -89,12 +89,13 @@
 									    </div>
                                         <div class="col-md-6">
                                         <div class="form-group">
-                                        <label for="text">Recebido em:</label>
+                                        <label for="text">Destino:</label>
                                         <input type="text" class="form-control" name="" value="{{$analises->produts->resparea}}" disabled>
                                         </div>
 									    </div>
                                         </div>  
                                     </div>
+                                    <input hidden type="text" class="form-control" name="st" value="Liberado">
                                    
 
 					</div>
@@ -113,7 +114,7 @@
 						<strong class="card-title">Liberação - Laudo Técnico</strong>
 					</div>
 					<div class="card-body">
-           
+
 										@csrf
 										<!-- Tratamento de Errors -->
 										@if (count($errors) > 0)
@@ -127,6 +128,9 @@
                                         @endif
 										<!-- Fim Tratamento -->
 										@csrf
+                                        <input type="hidden" id="custId" name="recebimento_id" value="{{$analises->id}}">
+                                        <input type="hidden" id="custId" name="produto_id" value="{{$analises->produts->id}}">
+                                        <input type="hidden" id="custId" name="$analise->st" value="">
                                         <div class="row">
                                         <div class="col-md-3">
                                         <div class="form-group">
@@ -152,7 +156,7 @@
                                         <div class="col-md-3">
                                         <div class="form-group">
                                         <label for="text">Tipo de Liberação:</label>
-									        <select id="tipo" name="tplaudo" class="form-control" >
+									        <select id="" name="tplaudo" class="form-control" >
                 						        <option value="" selected disabled>Selecionar</option>
                   								<option>Análise</option>
                                                 <option>Laudo</option>  
@@ -164,32 +168,36 @@
                                         <div class="col-md-6">
                                         <div class="form-group">
                                         <label for="text">Laudo:</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="laudo" rows="3"></textarea>
+                                        <textarea class="form-control" id="text" name="laudo" rows="3"></textarea>
                                         </div>
 									    </div>
                                         <div class="col-md-6">
                                         <div class="form-group">
                                         <label for="text">Observações</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="laudo" rows="3"></textarea>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="obs" rows="3"></textarea>
                                         </div>
 									    </div>
-                                        </div>  
-                                        <div class="row">
-                                        <div class="col-md-1">
+                                        </div>
+                                        <div class="row">  
+                                        <div class="col-md-4">
                                         <div class="form-group">
-                                        <a class="btn btn-success" href=""style="padding-right: 15px;">Aprovar</a>
+                                        <label for="text">Situação:</label>
+									        <select id="sit" name="sto" onChange="texto()" class="form-control" >
+                						        <option value="" selected disabled>Selecionar</option>
+                  								<option value="1">Aprovado</option>
+                                                <option value="2">Reprovado</option>  
+                  					        </select>
                                         </div>
-									    </div>
-                                        <div class="col-md-1">
-                                        <div class="form-group">
-                                        <a class="btn btn-danger" href="" style="padding-right: 15px;">Reprovar</a>
+									    </div> 
                                         </div>
-									    </div>
-                                        </div>  
-                                        <button class="btn btn-warning" style="
+                                        <button class="btn btn-success" style="
                                                                                 padding-left: 80px;
                                                                                 padding-right: 80px;
                                                                                 ">Adicionar</button>
+                                        <a class="btn btn-danger" href="{{route('analise.index')}}" style="
+                                                                                padding-left: 80px;
+                                                                                padding-right: 80px;
+                                                                                ">Cancelar</a>
                                         </div>
 
                                     </form>
@@ -199,6 +207,23 @@
     
 </div><!-- .animated -->
 </div><!-- .content -->
+
+
 <div class="clearfix"></div>
+<script>
+function texto()
+{
+
+var valor = $( "#sit" ).val();
+
+if(valor == 1){
+
+document.getElementById("text").value = 'PRODUTO {{$analises->produts->nometec}} LIBERADO POR ESTAR DENTRO DO ESPECIFICADO.';
+}else{
+    document.getElementById("text").value = 'PRODUTO {{$analises->produts->nometec}} REPROVADO POR NÃO ESTAR DENTRO DO ESPECIFICADO.';
+}
+}
+</script>
 
 @include('footer')
+

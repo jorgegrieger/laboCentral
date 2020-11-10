@@ -66,7 +66,7 @@ Route::get('/recebimento/buscar','RecebimentoController@buscar')->name('recebime
 Route::get('/analise','AnaliseController@index')->name('analise.index');
 Route::get('/analise/adicionar','AnaliseController@adicionar')->name('analise.add');
 Route::get('/analise/editar/{id}','AnaliseController@editar')->name('analise.editar');
-Route::POST('/analise/salvar','AnaliseController@salvar')->name('analise.salvar');
+Route::POST('/analise/salvar/{id}','AnaliseController@salvar')->name('analise.salvar');
 Route::POST('/analise/atualizar/{id}','AnaliseController@atualizar')->name('analise.atualizar');
 Route::get('/analise/deletar/{id}','AnaliseController@deletar')->name('analise.deletar');
 Route::get('/pdfs/{id}','AnaliseController@geraPdf')->name('analise.pdf');
