@@ -53,13 +53,13 @@ public function buscar(Request $request)
   return view ('analise.index', ['request' => $request], ['requests' => $requests]);
 }
 
-public function editar($id)
+public function laudo($id)
 {
     $analises = \App\Recebimento::find($id);
     $analista = Analista::all()->pluck('nome', 'id');
     $prod = Produto::all()->pluck('nometec', 'id');
 
-        return view('analise.editar',compact('analises', 'analista','prod'));
+        return view('analise.laudo',compact('analises', 'analista','prod'));
 }
 
 public function atualizar(AnaliseRequest $request, $id)
@@ -81,12 +81,10 @@ return redirect()->route('analise.index')->with('mensagem', 'O recebimento '.$re
 
 
 
-/*public function geraPdf($id){
-
+public function geraPdf($id){
 
     $data = Analises::find($id);
     ini_set('max_execution_time', 300);
-    return PDF::loadView('analise.pdf', compact('data'))->download('Analise#'.$id.'.pdf');
+    return PDF::loadView('analise.pdf', compact('data'))->stream('Analise#'.$id.'.pdf');
 }
-*/
 }

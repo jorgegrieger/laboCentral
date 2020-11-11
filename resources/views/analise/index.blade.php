@@ -95,20 +95,20 @@
 								</tr>
 							</thead>
 							<tbody>
-							@foreach ($request as $recebimentos)
+							@foreach ($request as $recebimento)
 								<tr>
-									<th scope="row">{{ $recebimentos->id }}</th>
-									<td>{{ $recebimentos->produts->nometec}}</td>
-									<td>{{ $recebimentos->produts->produtobo}}</td>
-									<td>{{ $recebimentos->nfe}}</td>
-                                    <td>{{ $recebimentos->fornecedores->nome}}</td>
-									<td>{{ $recebimentos->produts->resparea}}</td>
-                                    <td>{{$recebimentos->pesoliqnf}}</td>
-									<td>{{$recebimentos->pesonf}}</td>
-									<td>{{$recebimentos->st}}</td>
+									<th scope="row">{{ $recebimento->id }}</th>
+									<td>{{ $recebimento->produts->nometec}}</td>
+									<td>{{ $recebimento->produts->produtobo}}</td>
+									<td>{{ $recebimento->nfe}}</td>
+                                    <td>{{ $recebimento->fornecedores->nome}}</td>
+									<td>{{ $recebimento->produts->resparea}}</td>
+                                    <td>{{$recebimento->pesoliqnf}}</td>
+									<td>{{$recebimento->pesonf}}</td>
+									<td>{{$recebimento->st}}</td>
 
 									<td style="height: 53px; width: 324px;">
-                                    <a class="btn btn-success" href="{{route('analise.editar',$recebimentos->id)}}">Realizar Laudo</a>
+                                    <a class="btn btn-success" href="{{route('analise.laudo',$recebimento->id)}}">Realizar Laudo</a>
 								
                                 </td>															
 								</tr>
@@ -134,48 +134,7 @@
 						<strong class="card-title">Laudos</strong>
 					</div>
 					<br>
-					<div class="col-sm-6">
-					<form action="{{route('analise.buscar')}}" method="get">
-				
-					<div class="input-group">
-					
-											<input type="text" name="criterio" placeholder="Pesquisa por NFE"  
-											data-toggle="tooltip" data-placement="top" title="Digite para fazer a busca" class="form-control">
-											<div class="input-group-btn"><button class="btn btn-primary" 
-											style="
-    												border-left-width: 5px;
-    												margin-left: 9px;"
-													>Procurar</button>
-											</div>
-										</form>
-										</div>
-				
-										</div>
 
-					<div class="card-body">
-
-		
-					@if(session('mensagem'))
-
-					<div class="sufee-alert alert with-close alert-success alert-dismissible fade show col-md-6">
-                                        {{session('mensagem')}}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-									</div>
-
-					
-					@elseif(session('erro'))
-
-					<div class="sufee-alert alert with-close alert-danger alert-dismissible fade show col-md-6">
-                                        {{session('erro')}}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-									</div>
-
-					@endif
-					</div>
 					<div class="card-body">
 						<table id="tabela" class="table table-striped" >
 						<thead>
@@ -188,6 +147,7 @@
 									<th>Tipo</th>
 									<th>Final de Semana</th>
 									<th>Situação</th>
+									<th>Ação</th>
 
 								</tr>
 							</thead>
@@ -206,9 +166,11 @@
 									@else
 									<td>Reprovado</td>
 									@endif
-
+									<td style="height: 53px; width: 324px;">
+                                    <a class="btn btn-custom" href="{{route('analise.editar',$recebimentos->id)}}">Editar</a>
+									<a class="btn btn-warning" href="{{route('analise.pdf',$recebimentos->id)}}">Emitir Laudo</a>
 								
-                                														
+                                </td>
 								</tr>
 								@endforeach
 							</tbody>

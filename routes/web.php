@@ -48,15 +48,17 @@ Route::get('/arearesp/deletar/{id}','ArearespController@deletar')->name('areares
 Route::get('/produto','ProdutoController@index')->name('produto.index');
 Route::get('/produto/adicionar','ProdutoController@adicionar')->name('produto.add');
 Route::get('/produto/editar/{id}','ProdutoController@editar')->name('produto.editar');
+Route::get('/produto/inativar/{id}','ProdutoController@inativar')->name('produto.inativar');
+Route::get('/produto/ativar/{id}','ProdutoController@ativar')->name('produto.ativar');
 Route::POST('/produto/salvar','ProdutoController@salvar')->name('produto.salvar');
 Route::POST('/produto/atualizar/{id}','ProdutoController@atualizar')->name('produto.atualizar');
 Route::get('/produto/deletar/{id}','ProdutoController@deletar')->name('produto.deletar');
 
 /*Rotas de Recebimento*/
 Route::get('/recebimento','RecebimentoController@index')->name('recebimento.index');
-Route::get('/recebimento/adicionar','RecebimentoController@adicionar')->name('recebimento.add');
+Route::get('/recebimento/adicionar/','RecebimentoController@adicionar')->name('recebimento.add');
 Route::get('/recebimento/editar/{id}','RecebimentoController@editar')->name('recebimento.editar');
-Route::POST('/recebimento/salvar','RecebimentoController@salvar')->name('recebimento.salvar');
+Route::POST('/recebimento/salvar/','RecebimentoController@salvar')->name('recebimento.salvar');
 Route::POST('/recebimento/atualizar/{id}','RecebimentoController@atualizar')->name('recebimento.atualizar');
 Route::get('/recebimento/deletar/{id}','RecebimentoController@deletar')->name('recebimento.deletar');
 Route::get('/pdf/{id}','RecebimentoController@geraPdf')->name('recebimento.pdf');
@@ -65,8 +67,9 @@ Route::get('/recebimento/buscar','RecebimentoController@buscar')->name('recebime
 /*Rotas de Analise*/
 Route::get('/analise','AnaliseController@index')->name('analise.index');
 Route::get('/analise/adicionar','AnaliseController@adicionar')->name('analise.add');
-Route::get('/analise/editar/{id}','AnaliseController@editar')->name('analise.editar');
+Route::get('/analise/laudo/{id}','AnaliseController@laudo')->name('analise.laudo');
 Route::POST('/analise/salvar/{id}','AnaliseController@salvar')->name('analise.salvar');
+Route::get('/analise/editar/{id}','AnaliseController@editar')->name('analise.editar');
 Route::POST('/analise/atualizar/{id}','AnaliseController@atualizar')->name('analise.atualizar');
 Route::get('/analise/deletar/{id}','AnaliseController@deletar')->name('analise.deletar');
 Route::get('/pdfs/{id}','AnaliseController@geraPdf')->name('analise.pdf');

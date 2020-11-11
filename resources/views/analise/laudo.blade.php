@@ -130,6 +130,7 @@
 										@csrf
                                         <input type="hidden" id="custId" name="recebimento_id" value="{{$analises->id}}">
                                         <input type="hidden" id="custId" name="produto_id" value="{{$analises->produts->id}}">
+                                        <input type="hidden" id="custId" name="fornecedor_id" value="{{$analises->fornecedores->id}}">
                                         <input type="hidden" id="custId" name="$analise->st" value="">
                                         <div class="row">
                                         <div class="col-md-3">
@@ -163,6 +164,16 @@
                   					        </select>
                                         </div>
 									    </div>
+                                        <div class="col-md-3">
+                                        <div class="form-group">
+                                        <label for="text">Situação:</label>
+									        <select id="sit" name="sto" onChange="texto()" class="form-control" >
+                						        <option value="" selected disabled>Selecionar</option>
+                  								<option value="1">Aprovado</option>
+                                                <option value="2">Reprovado</option>  
+                  					        </select>
+                                        </div>
+									    </div> 
                                         </div>   
                                         <div class="row">
                                         <div class="col-md-6">
@@ -177,18 +188,6 @@
                                         <textarea class="form-control" id="exampleFormControlTextarea1" name="obs" rows="3"></textarea>
                                         </div>
 									    </div>
-                                        </div>
-                                        <div class="row">  
-                                        <div class="col-md-4">
-                                        <div class="form-group">
-                                        <label for="text">Situação:</label>
-									        <select id="sit" name="sto" onChange="texto()" class="form-control" >
-                						        <option value="" selected disabled>Selecionar</option>
-                  								<option value="1">Aprovado</option>
-                                                <option value="2">Reprovado</option>  
-                  					        </select>
-                                        </div>
-									    </div> 
                                         </div>
                                         <button class="btn btn-success" style="
                                                                                 padding-left: 80px;

@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        SamuelTerra22\ReportGenerator\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -228,6 +229,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'PdfReport'     => SamuelTerra22\ReportGenerator\Facades\PdfReportFacade::class,
+        'ExcelReport'   => SamuelTerra22\ReportGenerator\Facades\ExcelReportFacade::class,
+        'CSVReport'     => SamuelTerra22\ReportGenerator\Facades\CSVReportFacade::class,
 
     ],
 

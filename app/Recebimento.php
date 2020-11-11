@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recebimento extends Model
 {
-   protected $fillable = ['produto_id', 'nfe','pesonf', 'fornecedor_id', 'st', 'pesoliqnf', 'tipoliberacao'];
+   protected $fillable = ['id','produto_id', 'nfe','pesonf', 'fornecedor_id', 'st', 'pesoliqnf', 'tipoliberacao'];
    
    
    public function fornecedores()

@@ -104,9 +104,13 @@
 									</div>
 									</div>
 									<input type="hidden" id="" name="st" value="Pendente"> </input>
-                                    <button class="btn btn-info">Adicionar</button>
+                                    <button class="btn btn-info" href="">Adicionar</button>
+									<br>
+									<br>
+									<p>Os produtos marcados como <strong>Desativado (D)</strong> não irão aparecer nesta lista.</p>
                                     </div>
                                     </form>
+									
 
 					</div>
 				</div>

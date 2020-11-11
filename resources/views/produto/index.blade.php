@@ -110,7 +110,11 @@
 									<td>{{ $produtos->st}}</td>
 									<td style="height: 53px; width: 324px;">
                                     <a class="btn btn-custom" href="{{route('produto.editar',$produtos->id)}}">Editar</a>
-									<a class="btn btn-danger"  href="javascript: (confirm('Deseja deletar o produto : {{$produtos->produtobo}} | {{$produtos->nometec}}?') ? window.location.href='{{route('produto.deletar',$produtos->id)}}' : false )">Deletar</a>
+									@if($produtos->st == 'A')
+									<a class="btn btn-secondary"  href="{{route('produto.inativar',$produtos->id)}}">Inativar</a>
+									@else
+									<a class="btn btn-success"  href="{{route('produto.inativar',$produtos->id)}}">Ativar</a>
+									@endif
                                 </td>															
 								</tr>
 								@endforeach

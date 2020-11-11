@@ -5,7 +5,7 @@ use App\Produto;
 use App\Fornecedor;
 use App\Recebimento;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Response;
+use Response;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Http\Requests\RecebimentoRequest;
@@ -19,15 +19,14 @@ class RecebimentoController extends Controller
     public function index()
     {	
         $request = Recebimento::all();
-        $request = Recebimento::simplePaginate(15);
+        $request = Recebimento::simplePaginate(500);
         return view('recebimento.index',compact('request'));
     }
 
     public function adicionar()
     {
-        $produto = DB::table("produtos")->pluck('nometec','id');
+        $produto = DB::table("produtos")->where('st','A')->pluck('nometec','id');
         $produt = DB::table("produtos")->pluck('produtobo','id');
-        
         $fornecedor = Fornecedor::all()->pluck('nome', 'id');
                 return view('recebimento.add', compact('produto', 'fornecedor'));
 
@@ -35,16 +34,18 @@ class RecebimentoController extends Controller
 
 public function salvar(RecebimentoRequest $request){
     
-    \App\Recebimento::create($request->all());
-
+     App\Recebimento::create($request->all());
+    
     return redirect()->route('recebimento.index');
-
 }
 
 public function buscar(Request $request)
 {
   $data = $request->get('criterio');
-  $request = Recebimento::where('nfe', 'LIKE','%'.$data.'%')->get();
+  $dat = $request->get('tipo');
+  $request = Recebimento::where('nfe', 'LIKE','%'.$data.'%')
+                          ->where('st', '=', $dat)
+                          ->get();
 
   if ($request->isempty()){
       return redirect()->route('recebimento.index')->with('erro','Nenhum produto com a nfe foi encontrado!');
@@ -81,7 +82,7 @@ public function geraPdf($id){
 
     $data = Recebimento::find($id);
     ini_set('max_execution_time', 300);
-    return PDF::loadView('recebimento.pdf', compact('data'))->download('Recebimento#'.$id.'.pdf');
+    return PDF::loadView('recebimento.pdf', compact('data'))->stream('Recebimento #'.$id.'.pdf');
 }
 
 }

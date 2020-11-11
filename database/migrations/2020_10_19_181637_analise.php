@@ -19,6 +19,7 @@ class Analise extends Migration
             $table->bigInteger('produto_id')->nullable()->unsigned();
             $table->timestamps();
             $table->bigInteger('analista_id')->nullable()->unsigned();
+            $table->bigInteger('fornecedor_id')->nullable()->unsigned();
             $table->string('tplaudo');
             $table->string('fds');
             $table->text('obs');
@@ -34,6 +35,7 @@ class Analise extends Migration
             $table->foreign('recebimento_id')->references('id')->on('recebimentos')->onDelete('cascade');
             $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
             $table->foreign('analista_id')->references('id')->on('analistas')->onDelete('cascade');
+            $table->foreign('fornecedor_id')->references('id')->on('fornecedors')->onDelete('cascade');
     });
     }
 

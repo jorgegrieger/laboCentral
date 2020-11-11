@@ -57,7 +57,7 @@
                                     <div class="form-group">
                                     <label for="text">Nome Técnico:</label>
 									<select id="nametec" name="produto_id" class="form-control" >
-                                    <option value="$recebimento->produto_id" selected>{{ $recebimento->produts->nometec}}</option>
+                                    <option value="{{$recebimento->produto_id}}" selected>{{ $recebimento->produts->nometec}}</option>
                 							  @foreach($produto as $key => $produtos)
                   								<option  value="{{$key}}"> {{$produtos}}</option>
                   							  @endforeach

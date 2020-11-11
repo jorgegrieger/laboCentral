@@ -99,15 +99,22 @@
 									</div>
                                     </div>
                                 <div class="row">
-                                <div class="col-md-6">
-                                <div class="form-group">
-                                        <label for="text">Status:</label>
-                                        <input type="text" class="form-control" name="st" value="{{old('st')}}">
-                                    </div>
-									</div>
+								<div class="col-md-2">
+                                        <div class="form-group">
+                                        <label for="text">Status</label>
+									        <select id="tipo" name="st" class="form-control" >
+                						        <option value="" selected disabled>Selecionar</option>
+                  								<option value="A">Ativo</option>
+                                                <option value="D">Desativado</option>  
+                  					        </select>
+                                        </div>
+									    </div>
                                     </div>
                                     <button class="btn btn-info">Adicionar</button>
+									<br>
+			
                                     </div>
+									
                                     </form>
 
 					</div>

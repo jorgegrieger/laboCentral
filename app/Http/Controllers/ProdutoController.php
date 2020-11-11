@@ -65,7 +65,18 @@ $produto->delete();
 return redirect()->route('produto.index')->with('mensagem', 'O produto '.$produto->nome.' foi deletado com sucesso.');   
 }
 
+public function inativar($id)
+{
+    $produto = Produto::find($id);
+    if ($produto->st == 'A'){
+        $produto->st = 'D';
+    }else{
+        $produto->st = 'A';
+    }
+    $produto->save();
 
+    return redirect()->route('produto.index');
+}
 
 /*public function geraPdf(){
 

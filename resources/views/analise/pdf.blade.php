@@ -128,7 +128,7 @@
                     <table>
                         <tr>
                             <td>
-                                BO Paper Brasil<br>
+                            <b>BO Paper Brasil<br>
                                 Rod. BR-001, Km 007 Fazenda, Arapoti - PR, 84990-000
                             </td>
                             
@@ -139,51 +139,68 @@
             
             <tr class="heading">
                 <td>
-                    Recebimento de Materia Prima
+                    Laudo Técnico
                 </td>
 
             </tr>
             <tr class="item">
                 <td>
-                    Produto: {{$data->produts->nometec}}
+                    Produto: <b>{{$data->produt->nometec}}
                 </td>
                 <tr class="item">
                 <td>
-                Nota fiscal: {{$data->nfe}}
+                Nota fiscal: <b>{{$data->recebiments->nfe}}
                 </td>
             </tr>
             <tr class="item">
                 <td>
-                Fornecedor: {{$forn->nome}}
+                Fornecedor: <b>{{$data->fornecedors->nome}}
                 </td>
             </tr>
             <tr class="item">
                 <td>
-                Peso Liquido: {{$data->pesoliqnf}}
+                Peso Liquido: <b>{{$data->recebiments->pesonf}}
                 </td>
             </tr>
             <tr class="item">
                 <td>
-                Peso NF: {{$data->pesonf}}
+                Recebido em: <b>{{$data->recebiments->created_at->format('d/m/Y H:i:s')}}
                 </td>
             </tr>
             <tr class="item">
                 <td>
-                    Destino: {{$data->produts->resparea}}
+                    Tendo Sido:
+                    @if($data->sto == 1)<b>Aprovado
+                    @else
+                    <b> Reprovado
+                    @endif
+					
+					
+					
+				
                 </td>
             </tr>
             
             <tr class="item">
                 <td>
-                    Recebido em: {{$data->created_at}}
+                   Conforme Analise em: <b>{{$data->created_at->format('d/m/Y H:i:s')}}
                 </td>
             </tr>
-            <tr class="item last">
+            <tr class="item">
                 <td>
-                    Laudo: {{$data->created_at}}
+                    Laudo: <b>{{$data->laudo}}
                 </td>
             </tr>
-
+            <tr class="item">
+                <td>
+                    Observações: <b>{{$data->obs}}
+                </td>
+            </tr>
+            <tr class="item">
+                <td>
+                    Analista Responsável: <strong>{{$data->analist->nome}}
+                </td>
+            </tr>
         </table>
     </div>
 </body>

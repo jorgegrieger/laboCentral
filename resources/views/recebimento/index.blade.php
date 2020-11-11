@@ -39,16 +39,39 @@
 					<div class="col-sm-6">
 					<form action="{{route('recebimento.buscar')}}" method="get">
 				
-					<div class="input-group">
-					
+											<div class="form-group">
+											<div class="row">
+											<div class="col-md-6">
 											<input type="text" name="criterio" placeholder="Pesquisa por NFE"  
 											data-toggle="tooltip" data-placement="top" title="Digite para fazer a busca" class="form-control">
-											<div class="input-group-btn"><button class="btn btn-primary" 
+											</div>
+											</div>
+												<div class="col-md-3">
+                                        		<div class="form-group">
+                                       			 <label for="text">Situação:</label>
+									      		  <select id="tipo" name="tipo" class="form-control" >
+                						       			 <option value="" selected>Selecionar</option>
+                  										  <option>Liberado</option>
+                                              			  <option>Pendente</option>  
+                  					      		  </select>
+                                       		</div>
+									  		</div>
+											</div>											
+											<div class="row">
+											<div class="col-md-6">
+											<div class="form-group">
+											<button class="btn btn-primary" 
 											style="
     												border-left-width: 5px;
     												margin-left: 9px;"
 													>Procurar</button>
+											
 											</div>
+											</div>
+											
+
+										
+										
 										</form>
 										</div>
 				
@@ -145,4 +168,5 @@ function myFunction() {
  }
  }
 
-</script>@include('footer')
+</script>
+@include('footer')
