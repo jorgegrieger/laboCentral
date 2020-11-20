@@ -23,5 +23,11 @@ class Produto extends Model
         return $this->belongsToMany(Recebimento::class,'produto_id', 'id');
         
     }
+
+    public function analise()
+    {
+        return $this->belongsToMany(Analises::class,'produto_id', 'id');
+        
+    }
 }
 

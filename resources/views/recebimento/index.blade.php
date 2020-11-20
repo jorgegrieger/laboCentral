@@ -42,45 +42,38 @@
 											<div class="form-group">
 											<div class="row">
 											<div class="col-md-6">
+											<label for="text">Situação:</label>
 											<input type="text" name="criterio" placeholder="Pesquisa por NFE"  
 											data-toggle="tooltip" data-placement="top" title="Digite para fazer a busca" class="form-control">
 											</div>
-											</div>
-												<div class="col-md-3">
-                                        		<div class="form-group">
-                                       			 <label for="text">Situação:</label>
+											<div class="col-md-4">
+											<label for="text">Situação:</label>
 									      		  <select id="tipo" name="tipo" class="form-control" >
                 						       			 <option value="" selected>Selecionar</option>
                   										  <option>Liberado</option>
                                               			  <option>Pendente</option>  
                   					      		  </select>
-                                       		</div>
-									  		</div>
-											</div>											
-											<div class="row">
-											<div class="col-md-6">
-											<div class="form-group">
-											<button class="btn btn-primary" 
-											style="
-    												border-left-width: 5px;
-    												margin-left: 9px;"
-													>Procurar</button>
-											
 											</div>
 											</div>
-											
 
+											</div>											
+
+									
 										
 										
 										</form>
 										</div>
 				
-										</div>
+									
 
 					<div class="card-body">
 
 					<a class="btn btn-success" href="{{ route('recebimento.add') }}">Adicionar Registro</a>
-					
+					<button class="btn btn-primary" 
+											style="
+    												border-left-width: 5px;
+    												margin-left: 9px;"
+													>Procurar</button>
 			
 					<br>
 					<br>

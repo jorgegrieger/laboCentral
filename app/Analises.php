@@ -27,7 +27,7 @@ class Analises extends Model
         
     }
 
-    public function produt()
+    public function produts()
     {
         return $this->belongsTo(Produto::class,'produto_id', 'id','fornecedor_id');
         

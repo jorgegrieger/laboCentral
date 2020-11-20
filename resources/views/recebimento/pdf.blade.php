@@ -154,7 +154,7 @@
             </tr>
             <tr class="item">
                 <td>
-                Fornecedor: {{$forn->nome}}
+                Fornecedor: {{$data->fornecedores->nome}}
                 </td>
             </tr>
             <tr class="item">
@@ -176,11 +176,6 @@
             <tr class="item">
                 <td>
                     Recebido em: {{$data->created_at}}
-                </td>
-            </tr>
-            <tr class="item last">
-                <td>
-                    Laudo: {{$data->created_at}}
                 </td>
             </tr>
 

@@ -27,7 +27,7 @@ class RecebimentoController extends Controller
     {
         $produto = DB::table("produtos")->where('st','A')->pluck('nometec','id');
         $produt = DB::table("produtos")->pluck('produtobo','id');
-        $fornecedor = Fornecedor::all()->pluck('nome', 'id');
+        $fornecedor = Fornecedor::where('st','A')->pluck('nome', 'id');
                 return view('recebimento.add', compact('produto', 'fornecedor'));
 
     }
@@ -42,10 +42,15 @@ public function salvar(RecebimentoRequest $request){
 public function buscar(Request $request)
 {
   $data = $request->get('criterio');
-  $dat = $request->get('tipo');
-  $request = Recebimento::where('nfe', 'LIKE','%'.$data.'%')
-                          ->where('st', '=', $dat)
-                          ->get();
+  $st = $request->get('tipo');
+
+  $request = Recebimento::when($data, function ($q) use ($data) {
+    return $q->where('nfe', 'like', '%'.$data.'%');
+})
+->when($st, function ($q) use ($st) {
+    return $q->where('st','=',$st);
+})->get();
+
 
   if ($request->isempty()){
       return redirect()->route('recebimento.index')->with('erro','Nenhum produto com a nfe foi encontrado!');

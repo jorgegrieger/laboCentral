@@ -95,9 +95,14 @@
 									<th scope="row">{{ $fornecedors->id }}</th>
 									<td>{{ $fornecedors->nome }}</td>
 									<td>{{ $fornecedors->fornsap}}</td>
+									<td>{{$fornecedors->st == 'A' ? 'Ativo' : 'Inativo'}}<td>
 									<td style="height: 53px; width: 324px;">
                                     <a class="btn btn-custom" href="{{route('fornecedor.editar',$fornecedors->id)}}">Editar</a>
-									<a class="btn btn-danger"  href="javascript: (confirm('Deseja deletar o fornecedor : {{$fornecedors->nome}}?') ? window.location.href='{{route('fornecedor.deletar',$fornecedors->id)}}' : false )">Deletar</a>
+									@if($fornecedors->st == 'A')
+									<a class="btn btn-secondary"  href="{{route('fornecedor.inativar',$fornecedors->id)}}">Inativar</a>
+									@else
+									<a class="btn btn-success"  href="{{route('fornecedor.inativar',$fornecedors->id)}}">Ativar</a>
+									@endif
                                 </td>															
 								</tr>
 								@endforeach

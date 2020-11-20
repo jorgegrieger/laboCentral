@@ -66,6 +66,7 @@
                                     </div>
 									</div>
 									</div>
+									<input type="hidden" class="form-control" name="st" value="A">
                                     <button class="btn btn-info">Adicionar</button>
                                     </div>
                                     </form>

@@ -62,6 +62,17 @@ public function laudo($id)
         return view('analise.laudo',compact('analises', 'analista','prod'));
 }
 
+public function editar($id)
+{
+    $receb = \App\Recebimento::find($id);
+    $analises = \App\Analises::find($id);
+    $analista = Analista::all()->pluck('nome', 'id');
+    $prod = Produto::all()->pluck('nometec', 'id');
+
+        return view('analise.editar',compact('analises', 'analista','prod','receb'));
+}
+
+
 public function atualizar(AnaliseRequest $request, $id)
 {
     $recebimento = \App\Analises::find($id)->update($request->all());

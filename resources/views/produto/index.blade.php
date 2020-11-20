@@ -53,8 +53,16 @@
 					<div class="card-body">
 
 					<a class="btn btn-success" href="{{ route('produto.add') }}">Adicionar produto</a>
-					
-			
+					<div class="row">
+					<div class="col-md-3">
+					<label for="text">Data inicial:</label>
+							<input type="text" class="form-control" name="from_date" value="">
+					</div>
+					<div class="col-md-3">
+					<label for="text">Data Final:</label>
+							<input type="text" class="form-control" name="to_date" value="">
+					</div>
+					</div>
 					<br>
 					<br>
 

@@ -57,7 +57,7 @@
 			
 					<br>
 					<br>
-					<a class="btn btn-success" href="{{ route('analista.pdf') }}">Relatório</a>
+					
 
 					@if(session('mensagem'))
 

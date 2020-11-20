@@ -32,6 +32,7 @@ Route::get('/pdf','AnalistaController@geraPdf')->name('analista.pdf');
 Route::get('/fornecedor','FornecedorController@index')->name('fornecedor.index');
 Route::get('/fornecedor/adicionar','FornecedorController@adicionar')->name('fornecedor.add');
 Route::get('/fornecedor/editar/{id}','FornecedorController@editar')->name('fornecedor.editar');
+Route::get('/fornecedor/inativar/{id}','FornecedorController@inativar')->name('fornecedor.inativar');
 Route::POST('/fornecedor/salvar','FornecedorController@salvar')->name('fornecedor.salvar');
 Route::POST('/fornecedor/atualizar/{id}','FornecedorController@atualizar')->name('fornecedor.atualizar');
 Route::get('/fornecedor/deletar/{id}','FornecedorController@deletar')->name('fornecedor.deletar');

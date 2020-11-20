@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fornecedor extends Model
 {
-    protected $fillable = ['id', 'nome','fornsap'];
+    protected $fillable = ['id', 'nome','fornsap','st'];
     public $timestamps = false;
 
 

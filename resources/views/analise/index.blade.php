@@ -156,7 +156,7 @@
 								<tr>
 									<th scope="row">{{ $recebimentos->id }}</th>
 									<td>{{ $recebimentos->recebiments->nfe}}</td>
-									<td>{{ $recebimentos->produt->nometec}}</td>
+									<td>{{ $recebimentos->produts->nometec}}</td>
 									<td>{{$recebimentos->created_at->format('d/m/Y H:i:s')}}</td>
                                     <td>{{$recebimentos->analist->nome}}</td>
 									<td>{{$recebimentos->tplaudo}}</td>

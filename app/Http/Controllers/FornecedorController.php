@@ -59,4 +59,18 @@ $fornecedor->delete();
 
 return redirect()->route('fornecedor.index')->with('mensagem', 'O fornecedor '.$fornecedor->nome.' foi deletado com sucesso.');   
 }
+
+
+public function inativar($id)
+{
+    $fornecedor = Fornecedor::find($id);
+    if ($fornecedor->st == 'A'){
+        $fornecedor->st = 'D';
+    }else{
+        $fornecedor->st = 'A';
+    }
+    $fornecedor->save();
+
+    return redirect()->route('fornecedor.index');
+}
 }
