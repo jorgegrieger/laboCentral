@@ -15,7 +15,6 @@ class Produto extends Model
     public function fornecedores()
     {
         return $this->belongsToMany(Fornecedor::class, 'fornecedor_id', 'id');
-        return $this->belongsToMany('App\Fornecedor');
     }
 
     public function recebimento()
@@ -27,6 +26,7 @@ class Produto extends Model
     public function analise()
     {
         return $this->belongsToMany(Analises::class,'produto_id', 'id');
+        return $this->belongsToMany(Fornecedor::class,'fornecedor_id', 'id');
         
     }
 }

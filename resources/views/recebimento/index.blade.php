@@ -61,7 +61,7 @@
 									
 										
 										
-										</form>
+										
 										</div>
 				
 									
@@ -77,7 +77,7 @@
 			
 					<br>
 					<br>
-
+					</form>
 					@if(session('mensagem'))
 
 					<div class="sufee-alert alert with-close alert-success alert-dismissible fade show col-md-6">

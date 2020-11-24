@@ -55,6 +55,7 @@ Route::POST('/produto/salvar','ProdutoController@salvar')->name('produto.salvar'
 Route::POST('/produto/atualizar/{id}','ProdutoController@atualizar')->name('produto.atualizar');
 Route::get('/produto/deletar/{id}','ProdutoController@deletar')->name('produto.deletar');
 
+
 /*Rotas de Recebimento*/
 Route::get('/recebimento','RecebimentoController@index')->name('recebimento.index');
 Route::get('/recebimento/adicionar/','RecebimentoController@adicionar')->name('recebimento.add');
@@ -75,3 +76,4 @@ Route::POST('/analise/atualizar/{id}','AnaliseController@atualizar')->name('anal
 Route::get('/analise/deletar/{id}','AnaliseController@deletar')->name('analise.deletar');
 Route::get('/pdfs/{id}','AnaliseController@geraPdf')->name('analise.pdf');
 Route::get('/analise/buscar','AnaliseController@buscar')->name('analise.buscar');
+Route::get('/analise/relatorio', 'AnaliseController@geraPdf2')->name('analise.relatorio');

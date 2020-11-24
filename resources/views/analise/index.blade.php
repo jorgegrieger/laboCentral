@@ -29,6 +29,74 @@
 <div class="content">
 	<div class="animated fadeIn">
 		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<strong class="card-title">Relatorios</strong>
+					</div>
+					<br>
+
+					
+					<div class="col-sm-3">
+					<form action="{{route('analise.relatorio')}}" method="get">
+					<div class="input-group">								
+
+		
+					<select id="" name="id" class="form-control" >
+                                        <option value="" selected>Selecionar Produto</option>
+                							  @foreach($produto as $produtos)
+                  								<option  value="{{$produtos->id}}">{{$produtos->nometec}} </option>
+                  							  @endforeach
+                  						</select>
+					
+										  <div class="input-group-btn">
+						<button class="btn btn-primary" style="
+    												border-left-width: 5px;
+    												margin-left: 9px;" 
+													>Procurar</button>
+													</div>
+												
+											</div>
+										</div>
+										
+					<div class="card-body">
+
+		
+					@if(session('mensagem'))
+
+					<div class="sufee-alert alert with-close alert-success alert-dismissible fade show col-md-6">
+                                        {{session('mensagem')}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+									</div>
+
+					
+					@elseif(session('erro'))
+
+					<div class="sufee-alert alert with-close alert-danger alert-dismissible fade show col-md-6">
+                                        {{session('erro')}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+									</div>
+
+					@endif
+					</div>
+										
+						</div>
+						</form>
+
+			
+				
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<div class="content">
+	<div class="animated fadeIn">
+		<div class="row">
 
 			<div class="col-md-12">
 				<div class="card">
@@ -36,11 +104,9 @@
 						<strong class="card-title">Liberações Pendentes</strong>
 					</div>
 					<br>
-					<div class="col-sm-6">
+					<div class="col-sm-3">
 					<form action="{{route('analise.buscar')}}" method="get">
-				
 					<div class="input-group">
-					
 											<input type="text" name="criterio" placeholder="Pesquisa por NFE"  
 											data-toggle="tooltip" data-placement="top" title="Digite para fazer a busca" class="form-control">
 											<div class="input-group-btn"><button class="btn btn-primary" 
@@ -51,8 +117,10 @@
 											</div>
 										</form>
 										</div>
-				
+									
 										</div>
+
+			
 
 					<div class="card-body">
 

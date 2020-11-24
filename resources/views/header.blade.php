@@ -95,11 +95,9 @@
                             <li><i class="menu-icon fa fa-genderless"></i><a href="{{route('analista.index')}}">Analistas</a></li>
                         </ul>
                     </li>
+
                     <li>
-                         <a href=""><i class="menu-icon fa fa-building"></i>Relatórios</a>
-                    </li>
-                    <li>
-                        <a href="{{route('analise.index')}}"> <i class="menu-icon fa fa-unlock"></i>Liberação</a>
+                        <a href="{{route('analise.index')}}"> <i class="menu-icon fa fa-unlock"></i>Liberação e Laudos</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

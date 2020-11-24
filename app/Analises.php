@@ -8,6 +8,11 @@ class Analises extends Model
 {
     protected $fillable = ['produto_id','fornecedor_id', 'recebimento_id','datalaudo', 'analista_id','tplaudo','fds', 'sto', 'obs', 'laudo'];
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
     public function recebiments()
     {
         return $this->belongsTo(Recebimento::class,'recebimento_id', 'id','st');
@@ -33,5 +38,4 @@ class Analises extends Model
         
     }
     
-
 }

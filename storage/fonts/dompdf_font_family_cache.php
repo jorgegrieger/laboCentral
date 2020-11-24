@@ -81,4 +81,16 @@
     '100' => $fontDir . '/raleway-100_0d899723d0ff5d4ca638a91040dcf5c0',
     '600' => $fontDir . '/raleway-600_1c285e130fc4e97cbd01970101450315',
   ),
+  'fontawesome' => array(
+    'normal' => $fontDir . '/fontawesome-normal_d1c949ed5376e8fe9dfe938ddb24f4f8',
+  ),
+  'themify' => array(
+    'normal' => $fontDir . '/themify-normal_5e478a114cf04ea8765b9323a6e47349',
+  ),
+  'pe-icon-7-stroke' => array(
+    'normal' => $fontDir . '/pe-icon-7-stroke-normal_dd73a5515df96577930dd45d580ea309',
+  ),
+  'glyphicons halflings' => array(
+    'normal' => $fontDir . '/glyphicons-halflings-normal_91a063d0f3772b152f606edc0383c99d',
+  ),
 ) ?>
