@@ -30,47 +30,6 @@ class ProdutoController extends Controller
     }
 
 
-    public function displayReport(Request $request)
-    {
-        $fromDate = $request->input('from_date');
-        $toDate = $request->input('to_date');
-        $sortBy = $request->input('nometec');
-    
-        $title = 'Registered User Report'; // Report title
-    
-        $meta = [ // For displaying filters description on header
-            'Registered on' => $fromDate . ' To ' . $toDate,
-            'Sort By' => $sortBy
-        ];
-    
-        $queryBuilder = Analises::join('produtos','analises.produto_id','=','produtos.id')
-        ->join('analistas','analises.analista_id','=','analistas.id')
-        ->join('recebimentos','analises.recebimento_id','=','recebimentos.id')
-        ->join('fornecedors','analises.fornecedor_id','=','fornecedors.id')
-        ->select('produtos.id', 'produtos.nometec', 'analises.id', 'recebimentos.created_at','recebimentos.nfe',
-        'recebimentos.pesonf','produtos.resparea','analises.created_at','analistas.nome',
-        'fornecedors.nome','analises.laudo','analises.obs')
-        ->get();
-    
-        $columns = [ // Set Column to be displayed
-            'Cod. Produto' => 'produtos.id',
-            'Nome' => 'produtos.nometec',
-            'Cod Analise' => 'analises.id',
-            'Data Recebimento' => 'recebimentos.created_at',
-            'NFe' => 'recebimentos.nfe',
-            'Peso NF' => 'recebimentos.pesonf',
-            'Área' => 'produtos.resparea',
-            'Data Análise' => 'analises.created_at',
-            'Responsável' => 'analistas.nome',
-            'Fornecedor' => 'fornecedors.nome',
-            'Analise/Laudo' => 'analises.laudo',
-            'Observações' => 'analises.obs',
-        ];
-    
-        // Generate Report with flexibility to manipulate column class even manipulate column value (using Carbon, etc).
-        return PdfReport::of($title, $meta, $queryBuilder, $columns)->stream(); // other available method: download('filename') to download pdf / make() that will producing DomPDF / SnappyPdf instance so you could do any other DomPDF / snappyPdf method such as stream() or download()
-    }
-
 
 
 public function salvar(ProdutoRequest $request){

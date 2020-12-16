@@ -110,7 +110,7 @@
 									<th>Nota Fiscal</th>
 									<th>Fornecedor</th>
 									<th>Area Responsavel</th>
-									<th>Peso Liquido</th>
+									<th>Data</th>
 									<th>Peso Laboratório</th>
 									<th>Situação</th>
 									<th>Ação</th>
@@ -125,7 +125,7 @@
 									<td>{{ $recebimentos->nfe}}</td>
                                     <td>{{ $recebimentos->fornecedores->nome}}</td>
 									<td>{{ $recebimentos->produts->resparea}}</td>
-                                    <td>{{$recebimentos->pesoliqnf}}</td>
+                                    <td>{{$recebimentos->created_at->format('d/m/yy')}}</td>
 									<td>{{$recebimentos->pesonf}}</td>
 									<td>{{$recebimentos->st}}</td>
 

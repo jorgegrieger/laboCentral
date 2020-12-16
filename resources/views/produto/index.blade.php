@@ -107,7 +107,11 @@
 									@else
 									<td>NDA</td>
 									@endif
-									<td>{{ $produtos->st}}</td>
+									@if($produtos->st == 'A')
+									<td>Ativo</td>
+									@else
+									<td>Inativo</td>
+									@endif
 									<td style="height: 53px; width: 324px;">
                                     <a class="btn btn-custom" href="{{route('produto.editar',$produtos->id)}}">Editar</a>
 									@if($produtos->st == 'A')

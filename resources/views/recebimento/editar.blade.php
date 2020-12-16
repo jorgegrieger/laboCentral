@@ -91,7 +91,7 @@
                                 <div class="col-md-6">
                                 <div class="form-group">
                                         <label for="text">Peso Liquido:</label>
-                                        <input type="text" class="form-control" name="pesoliqnf" value="{{$recebimento->pesoliqnf}}">
+                                        <input type="number" min="0" class="form-control" name="pesoliqnf" value="{{$recebimento->pesoliqnf}}">
                                     </div>
 									</div>
                                     </div>
@@ -99,7 +99,7 @@
                                 <div class="col-md-6">
                                 <div class="form-group">
                                         <label for="text">Peso Laboratório:</label>
-                                        <input type="text" class="form-control" name="pesonf" value="{{$recebimento->pesonf}}">
+                                        <input type="number" min="0" class="form-control" name="pesonf" value="{{$recebimento->pesonf}}">
                                     </div>
 									</div>
                                     </div>

@@ -81,7 +81,7 @@
                                         <div class="form-group">
                                         <label for="text">Tipo de Liberação:</label>
 									        <select id="" name="tplaudo" class="form-control" >
-                						        <option value="{{$analises->fds}}" selected>{{$analises->tplaudo}}</option>
+                						        <option value="{{$analises->tplaudo}}" selected>{{$analises->tplaudo}}</option>
                   								<option>Análise</option>
                                                 <option>Laudo</option>  
                   					        </select>
@@ -91,7 +91,7 @@
                                         <div class="form-group">
                                         <label for="text">Situação:</label>
 									        <select id="sit" name="sto" onChange="texto()" class="form-control" >
-                						        <option value="" selected>{{$analises->sto == '1'? "Aprovado" : "Reprovado"}}</option>
+                						        <option value="{{$analises->sto}}" selected>{{$analises->sto == '1'? "Aprovado" : "Reprovado"}}</option>
                   								<option value="1">Aprovado</option>
                                                 <option value="2">Reprovado</option>  
                   					        </select>

@@ -37,19 +37,8 @@
 						<strong class="card-title">Informações Recebimento Nº{{$analises->id}}</strong>
 					</div>
 					<div class="card-body">
-           
-										@csrf
-										<!-- Tratamento de Errors -->
-										@if (count($errors) > 0)
-                                        <div class="alert alert-danger">
-                                       
-                                        @foreach($errors->all() as $error)
-                                        <li>{{$error}}</li>
-                                        @endforeach
-                                       
-                                        </div>
-                                        @endif
-										<!-- Fim Tratamento -->
+        
+			
                                         <form action="{{route('analise.salvar',$analises->id)}}" method="POST">
 										@csrf
                                         <div class="row">

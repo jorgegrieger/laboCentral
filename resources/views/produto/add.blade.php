@@ -86,7 +86,7 @@
 							<div class="col-md-6">
 							<div class="form-group">
 							<label for="text">Área Responsável:</label>
-							<input type="text" class="form-control" name="from_date" value="">
+							<input type="text" class="form-control" name="resparea" value="">
             				</div>
 							</div>
                             </div>

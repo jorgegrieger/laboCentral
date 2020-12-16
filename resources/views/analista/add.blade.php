@@ -60,6 +60,16 @@
                                         <input type="text" class="form-control" name="nome" value="{{old('nome')}}">
                                     </div>
 									</div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                        <label for="text">Status</label>
+									        <select id="" name="st" class="form-control" >
+                						        <option value="" selected disabled>Selecionar</option>
+                  								<option value="A">Ativo</option>
+                                                <option value="D">Inativo</option>  
+                  					        </select>
+                                        </div>
+									    </div>
                                     </div>
 
                                     <button class="btn btn-info">Adicionar</button>

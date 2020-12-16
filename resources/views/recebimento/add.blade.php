@@ -68,7 +68,7 @@
                             <div class="row">
                             <div class="col-md-6">
                             <div class="form-group">
-                                        <label for="text">Num Nota Fiscal:</label>
+                                        <label for="text">Nº Nota Fiscal:</label>
                                         <input type="text" class="form-control" name="nfe" value="{{old('nfe')}}">
                                     </div>
 									</div>
@@ -91,7 +91,7 @@
                                 <div class="col-md-6">
                                 <div class="form-group">
                                         <label for="text">Peso Liquido:</label>
-                                        <input type="text" class="form-control" name="pesoliqnf" value="{{old('pesoliqnf')}}">
+                                        <input type="number" min="0" class="form-control" name="pesoliqnf" value="{{old('pesoliqnf')}}">
                                     </div>
 									</div>
                                     </div>
@@ -99,7 +99,7 @@
                                 <div class="col-md-6">
                                 <div class="form-group">
                                         <label for="text">Peso Laboratório:</label>
-                                        <input type="text" class="form-control" name="pesonf" value="{{old('pesonf')}}">
+                                        <input type="number" min="0" class="form-control" name="pesonf" value="{{old('pesonf')}}">
                                     </div>
 									</div>
 									</div>
@@ -107,7 +107,7 @@
                                     <button class="btn btn-info" href="">Adicionar</button>
 									<br>
 									<br>
-									<p>Os produtos marcados como <strong>Desativado (D)</strong> não irão aparecer nesta lista.</p>
+									<p>Os produtos marcados como <strong>Inativos</strong> não irão aparecer nesta lista.</p>
                                     </div>
                                     </form>
 									

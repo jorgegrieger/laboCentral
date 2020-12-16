@@ -24,6 +24,7 @@ Route::get('/analista','AnalistaController@index')->name('analista.index');
 Route::get('/analista/adicionar','AnalistaController@adicionar')->name('analista.add');
 Route::get('/analista/editar/{id}','AnalistaController@editar')->name('analista.editar');
 Route::POST('/analista/salvar','AnalistaController@salvar')->name('analista.salvar');
+Route::get('/analista/inativar/{id}','AnalistaController@inativar')->name('analista.inativar');
 Route::POST('/analista/atualizar/{id}','AnalistaController@atualizar')->name('analista.atualizar');
 Route::get('/analista/deletar/{id}','AnalistaController@deletar')->name('analista.deletar');
 Route::get('/pdf','AnalistaController@geraPdf')->name('analista.pdf');
@@ -77,3 +78,6 @@ Route::get('/analise/deletar/{id}','AnaliseController@deletar')->name('analise.d
 Route::get('/pdfs/{id}','AnaliseController@geraPdf')->name('analise.pdf');
 Route::get('/analise/buscar','AnaliseController@buscar')->name('analise.buscar');
 Route::get('/analise/relatorio', 'AnaliseController@geraPdf2')->name('analise.relatorio');
+
+/*Rotas de Relatórios*/
+Route::get('/relatorios','RelatorioController@index')->name('relatorio.index');

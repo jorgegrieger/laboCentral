@@ -9,7 +9,7 @@ class Produto extends Model
 
     use softdeletes;
 
-    protected $fillable = [ 'id', 'produtobo', 'nometec', 'fornecedor_id', 'resparea_id', 'st', 'cosap'];
+    protected $fillable = [ 'id', 'produtobo', 'nometec', 'fornecedor_id', 'resparea_id', 'st','resparea', 'cosap'];
     public $timestamps = false;
 
     public function fornecedores()

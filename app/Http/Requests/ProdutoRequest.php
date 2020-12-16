@@ -27,6 +27,7 @@ class ProdutoRequest extends FormRequest
             'produtobo' => 'required',
             'nometec' => 'required',
             'st' => 'required',
+            'fornecedor_id' => 'required'
       
         ];
     }
@@ -37,7 +38,8 @@ class ProdutoRequest extends FormRequest
             
             'produtobo.required' => 'O campo PRODUTO é de preenchimento obrigatório!', 
             'nometec.required' => 'O campo COMERCIAL é de preenchimento obrigatório!', 
-            'st.required' => 'O campo Situação é de preenchimento obrigatório!',
+            'st.required' => 'O campo STATUS é de preenchimento obrigatório!',
+            'fornecedor_id.required' => 'O campo FORNECEDOR é de preenchimento obrigatório!'
            
         ];
     }

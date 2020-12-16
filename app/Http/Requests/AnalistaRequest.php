@@ -25,6 +25,7 @@ class AnalistaRequest extends FormRequest
     {
         return [
             'nome' => 'required',
+            'st' => 'required',
         ];
     }
 
@@ -33,6 +34,7 @@ class AnalistaRequest extends FormRequest
         return [
             
             'nome.required' => 'O campo NOME é de preenchimento obrigatório!', 
+            'st.required' => 'O campo Status é de preenchimento obrigatório!'
 
         ];
     }

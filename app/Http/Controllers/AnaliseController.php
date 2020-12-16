@@ -22,7 +22,7 @@ class AnaliseController extends Controller
         $requests = Analises::all();
         $produto = Produto::all();
         $requests = Analises::simplePaginate(15);
-        $request = Recebimento::where('st', '=','Pendente')->get();
+        $request = Recebimento::where('st', '=','Pendente')->orderBy('created_at')->get();
         return view('analise.index',compact('request','requests','produto'));
     }
 
@@ -58,7 +58,7 @@ public function buscar(Request $request)
 public function laudo($id)
 {
     $analises = \App\Recebimento::find($id);
-    $analista = Analista::all()->pluck('nome', 'id');
+    $analista = DB::table("analistas")->where('st','A')->pluck('nome','id');
     $prod = Produto::all()->pluck('nometec', 'id');
 
         return view('analise.laudo',compact('analises', 'analista','prod'));
@@ -107,19 +107,26 @@ public function geraPdf2(Request $request){
     $prd = Produto::find($request);
 
     $toDate = $request->input('id');
- 
+    $deData = $request->input('dedata');
+    $paraData = $request->input('pradata');
 
+
+    
     $data = Analises::join('produtos','analises.produto_id','=','produtos.id')
     ->join('analistas','analises.analista_id','=','analistas.id')
     ->join('recebimentos','analises.recebimento_id','=','recebimentos.id')
     ->join('fornecedors','analises.fornecedor_id','=','fornecedors.id')
     ->select('produtos.id', 'produtos.nometec', 'analises.id as ana_id', 'recebimentos.created_at as data_rec','recebimentos.nfe',
     'recebimentos.pesonf','produtos.resparea','analises.created_at as data_laudo','analistas.nome as ana_nome',
-    'fornecedors.nome','analises.sto','analises.laudo','analises.obs')->where('produtos.id','=',$toDate)
+    'fornecedors.nome','analises.sto','analises.laudo','analises.obs')->where('produtos.id','=',$toDate)->whereBetween('analises.created_at', array($deData,$paraData))
     ->get();
 
 
 
-    return PDF::loadView('analise.relatorio', compact('data','prd'))->setPaper('a4', 'landscape')->stream();
+    return PDF::loadView('analise.relatorio', compact('data','prd','deData','paraData'))->setPaper('a4', 'landscape')->stream();
+    
+
+
 }
+
 }

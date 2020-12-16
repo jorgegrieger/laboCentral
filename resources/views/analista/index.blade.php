@@ -86,6 +86,7 @@
 								<tr>
 									<th>#</th>
 									<th>Nome</th>
+									<th>Situação</th>
 									<th>Ação</th>
 								</tr>
 							</thead>
@@ -94,9 +95,18 @@
 								<tr>
 									<th scope="row">{{ $analistas->id }}</th>
 									<td>{{ $analistas->nome }}</td>
+									@if($analistas->st == 'A')
+									<td>Ativo</td>
+									@else
+									<td>Inativo</td>
+									@endif
 									<td style="height: 53px; width: 200px;">
                                     <a class="btn btn-custom" href="{{route('analista.editar',$analistas->id)}}">Editar</a>
-									<a class="btn btn-danger"  href="javascript: (confirm('Deseja deletar o analista : {{$analistas->nome}}?') ? window.location.href='{{route('analista.deletar',$analistas->id)}}' : false )">Deletar</a>
+									@if($analistas->st == 'A')
+									<a class="btn btn-secondary"  href="{{route('analista.inativar',$analistas->id)}}">Inativar</a>
+									@else
+									<a class="btn btn-success"  href="{{route('analista.inativar',$analistas->id)}}">Ativar</a>
+									@endif
                                 </td>															
 								</tr>
 								@endforeach

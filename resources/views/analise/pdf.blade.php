@@ -145,7 +145,7 @@
             </tr>
             <tr class="item">
                 <td>
-                    Produto: <b>{{$data->produt->nometec}}
+                    Produto: <b>{{$data->produts->nometec}}
                 </td>
                 <tr class="item">
                 <td>

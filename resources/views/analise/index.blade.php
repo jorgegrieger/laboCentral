@@ -26,73 +26,7 @@
 	</div>
 </div>
 
-<div class="content">
-	<div class="animated fadeIn">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="card">
-					<div class="card-header">
-						<strong class="card-title">Relatorios</strong>
-					</div>
-					<br>
 
-					
-					<div class="col-sm-3">
-					<form action="{{route('analise.relatorio')}}" method="get">
-					<div class="input-group">								
-
-		
-					<select id="" name="id" class="form-control" >
-                                        <option value="" selected>Selecionar Produto</option>
-                							  @foreach($produto as $produtos)
-                  								<option  value="{{$produtos->id}}">{{$produtos->nometec}} </option>
-                  							  @endforeach
-                  						</select>
-					
-										  <div class="input-group-btn">
-						<button class="btn btn-primary" style="
-    												border-left-width: 5px;
-    												margin-left: 9px;" 
-													>Procurar</button>
-													</div>
-												
-											</div>
-										</div>
-										
-					<div class="card-body">
-
-		
-					@if(session('mensagem'))
-
-					<div class="sufee-alert alert with-close alert-success alert-dismissible fade show col-md-6">
-                                        {{session('mensagem')}}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-									</div>
-
-					
-					@elseif(session('erro'))
-
-					<div class="sufee-alert alert with-close alert-danger alert-dismissible fade show col-md-6">
-                                        {{session('erro')}}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-									</div>
-
-					@endif
-					</div>
-										
-						</div>
-						</form>
-
-			
-				
-			</div>
-		</div>
-	</div>
-</div>
 <br>
 <div class="content">
 	<div class="animated fadeIn">
@@ -156,8 +90,7 @@
 									<th>Nota Fiscal</th>
 									<th>Fornecedor</th>
 									<th>Area Responsavel</th>
-									<th>Peso Liquido</th>
-									<th>Peso Laboratório</th>
+									<th>Data</th>
 									<th>Situação</th>
 									<th>Ação</th>
 								</tr>
@@ -171,8 +104,7 @@
 									<td>{{ $recebimento->nfe}}</td>
                                     <td>{{ $recebimento->fornecedores->nome}}</td>
 									<td>{{ $recebimento->produts->resparea}}</td>
-                                    <td>{{$recebimento->pesoliqnf}}</td>
-									<td>{{$recebimento->pesonf}}</td>
+                                    <td>{{$recebimento->created_at->format('d/m/yy')}}</td>
 									<td>{{$recebimento->st}}</td>
 
 									<td style="height: 53px; width: 324px;">
@@ -202,9 +134,10 @@
 						<strong class="card-title">Laudos</strong>
 					</div>
 					<br>
+					
 
 					<div class="card-body">
-						<table id="tabela" class="table table-striped" >
+						<table id="bootstrap-data-table-export" class="table table-striped" >
 						<thead>
 								<tr>
 									<th>#</th>
@@ -266,4 +199,10 @@ function myFunction() {
  }
  }
 
-</script>@include('footer')
+</script>
+<script>
+$(document).ready(function() {
+          $('#bootstrap-data-table-export').DataTable();
+      } );
+  </script>
+  @include('footer')

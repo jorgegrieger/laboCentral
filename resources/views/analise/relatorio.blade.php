@@ -15,7 +15,7 @@
 	<img src="https://imagizer.imageshack.com/img924/3340/8zqaBA.jpg" style="width:100%; max-width:300px;">
 	</div>
 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-	<span class="fontsize">HISTÓRICO DE LAUDOS POR ITEM</span>
+	<span class="fontsize">HISTÓRICO DE LAUDOS POR ITEM</span> <span class ="fontsize1"><p>DE:{{date("d/m/Y", strtotime($deData))}}  ATÉ:{{date("d/m/Y", strtotime($paraData))}}</span>
 	</div>
 	</div>
 	@if(!$data->isEmpty())
@@ -65,12 +65,12 @@
 							@foreach ($data as $produtos)
 								<tr class="font">
 									<td>{{$produtos->ana_id}}</td>
-									<td>{{$produtos->data_rec}}</td>
+									<td>{{date("d/m/Y H:m:s", strtotime($produtos->data_rec))}}</td>
 									<td>{{$produtos->nfe}}</td>
 									<td>{{$produtos->pesonf}}</td>
 									<td>{{$produtos->nome}}</td>
 									<td>{{$produtos->resparea}}</td>
-									<td>{{$produtos->data_laudo}}</td>
+									<td>{{date("d/m/Y", strtotime($produtos->data_laudo))}}</td>
 									<td>{{$produtos->ana_nome}}</td>
 									@if($produtos->sto == '1')
 										<td>Aprovado</td>
@@ -106,8 +106,16 @@
 }
 
 .fontsize {
-	font-size: 30px;
+	font-size: 25px;
 	font-family: Impact, Charcoal, sans-serif;
 	font-weight: bold;
+	color: gray;  
+}
+
+.fontsize1 {
+	font-size: 20px;
+	font-family: Impact, Charcoal, sans-serif;
+	font-weight: normal;
+	color: black;  
 }
 </style>

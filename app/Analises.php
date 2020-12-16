@@ -8,7 +8,9 @@ class Analises extends Model
 {
     protected $fillable = ['produto_id','fornecedor_id', 'recebimento_id','datalaudo', 'analista_id','tplaudo','fds', 'sto', 'obs', 'laudo'];
 
+    
     protected $dates = [
+        
         'created_at',
         'updated_at',
     ];

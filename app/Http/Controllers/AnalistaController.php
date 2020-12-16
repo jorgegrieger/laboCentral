@@ -27,7 +27,7 @@ class AnalistaController extends Controller
 
 public function salvar(AnalistaRequest $request){
     
-    \App\Analista::create($request->all());
+    Analista::create($request->all());
     
     \Session::flash('flash_message',[
         'msg'=>"Analista adicionado com Sucesso!",
@@ -55,13 +55,6 @@ public function atualizar(AnalistaRequest $request, $id)
         
 }
 
-public function deletar ($id)
-{
-$analista = \App\Analista::find($id);
-$analista->delete();
-
-return redirect()->route('analista.index')->with('mensagem', 'O Analista '.$analista->nome.' foi deletado com sucesso.');   
-}
 
 private $model;
 public function __construct(Analista $model)
@@ -69,11 +62,17 @@ public function __construct(Analista $model)
     $this->model = $model;
 }
 
-public function geraPdf(){
+public function inativar($id)
+{
+    $analista = Analista::find($id);
+    if ($analista->st == 'A'){
+        $analista->st = 'D';
+    }else{
+        $analista->st = 'A';
+    }
+    $analista->save();
 
-
-    $data = Analista::all();
-    return PDF::loadView('analista.pdf', compact('data'))->stream();
+    return redirect()->route('analista.index');
 }
 
 }

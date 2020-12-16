@@ -20,6 +20,7 @@ class RecebimentoController extends Controller
     {	
         $request = Recebimento::all();
         $request = Recebimento::simplePaginate(500);
+        $request = Recebimento::orderby('created_at','desc')->get();
         return view('recebimento.index',compact('request'));
     }
 
@@ -34,7 +35,7 @@ class RecebimentoController extends Controller
 
 public function salvar(RecebimentoRequest $request){
     
-     App\Recebimento::create($request->all());
+     Recebimento::create($request->all());
     
     return redirect()->route('recebimento.index');
 }
@@ -49,7 +50,7 @@ public function buscar(Request $request)
 })
 ->when($st, function ($q) use ($st) {
     return $q->where('st','=',$st);
-})->get();
+})->orderBy('created_at','desc')->get();
 
 
   if ($request->isempty()){
